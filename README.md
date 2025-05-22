@@ -2,6 +2,7 @@
 <h4 align="left"><a href="https://github.com/caroolps/QA-AS2-Group">INÍCIO</a></h4>
 <h4 align="left"><a href="https://github.com/caroolps/AUTOMATIZADO/blob/main/README.md">TESTES AUTOMATIZADOS</a></h4>
 
+
 ## 📋 Plano de Teste
 
 Este plano de teste descreve os cenários e condições a serem validados no projeto XXX para garantir o correto funcionamento das funcionalidades.
