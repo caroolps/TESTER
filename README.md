@@ -1,4 +1,4 @@
-## 📚 Seções
+## 📚 Sections
 <h4 align="left"><a href="https://github.com/caroolps/QA-AS2-Group">INÍCIO</a></h4>
 <h4 align="left"><a href="https://github.com/caroolps/AUTOMATIZADO/blob/main/README.md">TESTES AUTOMATIZADOS</a></h4>
 
@@ -105,7 +105,7 @@ Index | As | I Want to | So that
 - **Responsible:**  
   Test Analyst Caroline Sousa
 
-## 7. 🧪 Test Cases
+## 7. Test Cases
 
 ### 01. Test Case: Validation of Profile and Group Assignment
 
