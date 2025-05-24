@@ -46,17 +46,21 @@ Este plano de teste descreve os cenários e condições a serem validados no pro
 
 ## 7. 🧪 Casos de Teste
 
-#### Caso de Teste:
 
-- **Rastreabilidade do requisito:** [Inserir o requisito relacionado a este caso de teste]  
-- **Objetivo do Caso de Teste:** [Descrever o objetivo do caso de teste]
+### 01 - Caso de Teste: Validação da visualização dos projetos abertos
 
-| Step | Ação                                  | Resultado Esperado                               |
-|-------|--------------------------------------|------------------------------------------------|
-| 1     | Acessar                              | Página inicial do site é carregada corretamente|
-| 2     | Clicar                              | Página de detalhes do produto é exibida         |
-| 3     | Clicar                              | Produto é adicionado ao carrinho com sucesso    |
-| 4     | Ir para                            | Página do carrinho exibe o produto selecionado  |
+**Rastreabilidade do requisito**: 1 e 2  
+**Objetivo**: O app deve listar apenas os projetos abertos e seus donos
+
+## Passos do Teste
+
+| **Step** | **Action** | **Results** |
+|----------|------------|-------------|
+| 1 | Acessar o aplicativo com o perfil "Dono do produto" | O app direciona o usuário para a tela inicial com as seguintes características: <br> - Lista de projetos <br> - Approvals <br> - Reporting <br> - Gcraft Master File |
+| 2 | Acessar a lista de projetos | O app deve apresentar todos os projetos cadastrados no aplicativo |
+| 3 | Acessar a seção de "Filtros" > Status do projeto e selecionar a opção "aberto" | O app deve listar todos os projetos que estão abertos |
+| 4 | Clicar no projeto | O app deve mostrar o responsável pelo projeto |
+
 
 
 ## 8. Riscos e Mitigações
