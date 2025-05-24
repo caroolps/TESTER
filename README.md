@@ -20,39 +20,92 @@ This test plan outlines the scenarios and conditions to be validated in the Fina
   - Validation of report export functionality  
   - Validation of the app on different devices and in offline mode  
 
-- **Referências:**  
-  Documentos, requisitos, especificações usadas como base.
+- **Referências:**
+<details>
+  <summary>📁 User Stories</summary>
 
-## 2. Estratégia de Testes
-- **Tipos de Testes:**  
-  Exemplos: testes funcionais, testes de regressão, testes de integração, testes de performance, etc.
-- **Níveis de Teste:**  
-  Teste unitário, teste de sistema, teste de aceitação.
-- **Ferramentas:**  
-  Ferramentas utilizadas (ex: Selenium, JUnit, Postman, etc).
-- **Ambiente de Teste:**  
-  Descrição do ambiente (hardware, software, configurações, rede).
+ 
+Index | As | I Want to | So that
+-- | -- | -- | --
+1 | Product   Owner | Control CIP report | I can check what projects are open
+2 | Product   Owner | Control CIP report | The Owner can be identified
+3 | Product   Owner | have controls of user roles:   - Project Leader - users that only have access to update their project status   and information.   - Product Owner - have the ability to upload the GCRAFT master file, view all   project data and update any project data.   - Line Managers - Functional managers of the Project Leader with option to   view their team status of their group, can be multiple Line Managers for the   groups.   - Board approvers - board members with approval roles in the status update.   - Finance Manager - responsible / accountable for entire site control | system can have segregation of Duties (SoD)
+4 | Product   Owner | have controls of groups, by creating a list where all users have   a group associated with (Engineering, finance, Quality, etc). | so details that line managers/stakeholders can view a   consolidaded list of projects from their team.
+5 | Project   Leader | windows AD to be used for authentication | to assure compliance
+6 | Project   Leader | windows AD to be used for approval flow | to assure approval history
+7 | Product   Owner | I want to have an option to upload the GRAFT file inside the   APP. | the system can use this file to collect the data
+8 | Project Leader | I want to have a welcome screen with option to Update   projects and Status of my projects | I can have visibility of historical data and update Quarter/Year   information
+9 | Project   Leader | I want to have in a list form the projects under my name, pre-populated   with GCRAFT information, and the status (updaded or pending update). | I can easily know what project I need to update
+10 | Project   Leader | I want to be able to select a project from my project list to   access project details and update information. | I can go into this project details tab to include the   information.
+11 | Project   Leader | I want the details tab to have section, as below:   1. End Dates Reporting   2. Capitalization and Supplemental CAR   3. Negative CIP | I can go update each section
+12 | Project   Leader | I want the details tab of End Dates Reporting with the   following fields:    1. Start Date and End Date (automatically from GCRAFT)   2. Latest Update in End Date (user input calendar option)   2.1 If user fills the New End Date, mandatory fields where I have input Rationale   and Upload file if needed   3. an Dropdown list with the following options on the picture to the   right | i can update the end dates section.
+13 | Project   Leader | I want the details tab of Capitalization and Supplemental CAR   with the following fields:    1. field of "Start capitalization" to be drop down field:   1.1 Not applicable: only available as an option if end date is future date   1.2 Capitalization Started : only available as an option if end date has   passed current date.   1.3 Capitalization Started : only available as an option if end date has   passed current date.      2. the field of "higher than 80%" needs to calculated automatically   from the file and Yes/No needs to be flagged.   2.1 if Yes, the "suplemental CAR Required" needs to mandatory with   options Yes or No   2.2 If Yes for "suplemental CAR Required", the commentary fields is   required and the Attachment is optional.   If No, both needs to be blocked for input.      3. If user want to be move partial capitalization the tool must have a flag   of "Partial Capitalization" and    "Capitalization ID" and "Partial Amount" | i can update the capitalization Status.
+14 | Project   Leader | I want the details tab of Negative CIP with the following   fields:    1. Field of "Negative CIP" to be automatically flagged with Yes or   No based on negative value on the GCRAFT File.   1.1 if Yes, the "Action for negative CIP" needs to mandatory with a   user inputed text field and an option with attachment is optional.   1.2 If No, the commentary fields and attachment field need to be blocked for   input.      I want to have a submit for approval button that will write all the   updates on the selected project. the project status needs to be changed to   Updated. | i can update the negative Status and update the overall status
+15 | Project   Leader | if Capitalization started is select, I want the fielf of Capitalization ID to be mandatory   and allow for user input text.   If capitalization is not started, this Capitalization ID will be   blocked for inputs. | so I can indicate the GCRAFT Capitalization ID
+16 | Product   Owner | I want to have a welcome screen with the User Story #8 plus the   feature to Upload the GCRAFT Quarter File | the system can use this file to collect the data
+17 | Product   Owner | I want to receive an status of the upload of my file. If an   error, instruction of what to do next needs be provided. | I can easily identify if a error ocurred.
+18 | Line   Managers | I want to have a welcome screen with the  options in US#8 plus the feature to view   reporting of my team (based on the groups defined list based on my Line   manager status). | so that I can a report view of the projects under by management
+19 | Product Owner | the tool to automatically reads data from a GCRAFT Exported file   and maps the fields to create a quarter input | the tab report example colored in yellow can be automatically   filled.
+20 | Line   Managers | An screen with project information needs to be available for   view only. Reports needs to have all project data and for user inputs ones a   history of the last 4 tool updates.   I want to have the ability to extract in excel or PDF a summary list of my   group reports. If PDF, include date of extraction and user that created   the extraction on the header. | reports can be created
+21 | Product   Owner | An screen with project information needs to be available for   view only. Reports needs to have all project data and for user inputs ones a   history of the last 4 tool updates.   I want to have the ability to extract in excel or PDF a summary list of   all reports. If PDF, include date of extraction and user that created the   extraction on the header. | reports can be created
+22 | Finance   Manager | An screen with project information needs to be available for   view only. Reports needs to have all project data and for user inputs ones a   history of the last 4 tool updates.   I want to have the ability to extract in excel or PDF a summary list of   all reports. If PDF, include date of extraction and user that created the   extraction on the header. | reports can be created
+23 | Product   Owner | A flag must be automatically set for projects as follows:      1. if project information is the same status as the last update project status,   the project will be flagged as NO CHANGES.   2. If there are any changes on the project informtion, project status   flag needs to be INFORMATION CHANGES. | Approvers can easily identify project changes and speed up   approval.
+24 | Product   Owner | After the governance review, I need to move all projects for   approval by the Board Approvers. | The approval workflow can begin.
+25 | Board   Approvers | Have a "Pending Approval" screen in the app   that showcases all projects that need approval in a list.   The projects are organized with columns: Project Name and Flag   (Change/No Change).   The flag column must be able to filter projects (show only Changed/ show   only not changed / show all).      I need a main checkbox at the top to select all projects and individual   checkboxes for each project so that I can select/deselect individually.      I also need a button in the end for "Approve all selected"   or "Reject Selected".   For both of the buttons, a confirmation pop-up should appear, showing the   number of projects selected. e.g. "Are you sure you want to approve the   65 selected projects?" | ensure that the approval workflow is functional
+26 | Board   Approvers | 1. For approved projects, no further action is needed.   Projects that are approved will be hidden from the "Pending   Approval" screen.      2. For rejected projects, move the user to a "Rejection Reason"   screen. There, all projects selected for rejection will require a text   comment input for the reason of rejection.   2.1. At the bottom of the page, I need a "Submit" button   which will only submit information when all text boxes are filled. | ensure that project rejections are justified.
+27 | Product   Owner | Rejected projects must return as a "Draft" to the   "Update projects" screen for the Project Leader. | So that leaders can update information in a rejected project   based on the reject reason and send it for approval again.
+28 | Board   Approvers | From the "Pending Approval" screen, I must also be able   to navigate to a list of "Approved" or navigate to a list of   "Rejected" projects. | I can view and manage projects that have already passed the   "Pending Approval" screen.
+29 | Project   Leader | I want a receive an email notification once my project is with   status approved or submitted with no changes. Approvers and Line Manager   needs to receive this email as well. | can have better control of final project status
+30 | Project   Leader | I want a receive an email notification once my project is   rejected with the rejection reason informed. | can have better control of final project status
+31 | Line   Managers | I want a view in the reporting tag the last four end date for   each projects and a counter for total changes. | I can monitoring all projects    informations
+32 | Product   Owner | I want a use the app to notify Project Leader 14 days prier the   governance meeting.   If the Project Leader Not update the tool automatically notify the direct   leader / line manager 7 day prier the governance meeeting   The product owner have to have a botton to block update status. | Project data is up to date and the Product Owner can use the   tool in the governance meeting
 
-## 3. Itens a Testar
-- Lista das funcionalidades, módulos, APIs ou componentes que serão testados.
+<!--EndFragment-->
+</body>
 
-## 4. Itens Fora do Escopo
-- Lista do que não será testado e o motivo.
+</html>
+</details>
 
-## 5. Critérios de Aceitação e Saída
-- **Critérios de Aceitação:**  
-  Condições que devem ser atendidas para considerar o teste aprovado.
-- **Critérios de Saída:**  
-  Quando o ciclo de testes será considerado concluído.
+## 2. Test Strategy
 
-## 6. Plano de Execução dos Testes
-- **Cronograma:**  
-  Datas e etapas de execução.
-- **Responsáveis:**  
-  Equipe envolvida e suas funções.
+- **Test Types:**  
+  - Functional tests
+  - Regression tests
+  - Integration tests
+  - Performance tests
+  - Exploratory tests
 
-## 7. 🧪 Casos de Teste
+- **Test Levels:**  
+  - System testing
+  - Acceptance testing
 
+- **Tools:**  
+  - iOS and Android mobile phones
+  - Tablets
+  - MacBook
+
+- **Test Environment:**  
+  - Environment running the latest deployed version
+  - Internet access
+  - Mobile devices
+  - Tablets
+  - MacBook
+
+
+## 3. Acceptance Criteria
+- **Acceptance Criteria:**  
+  All test scenarios must be executed successfully.
+
+
+## 4. Test Execution Plan
+
+- **Schedule:**  
+  Test execution from 22/05/2025 to 26/05/2025
+
+- **Responsible:**  
+  Test Analyst Caroline Sousa
+
+## 7. 🧪 Test Cases
 
 ### 01. Test Case: Validation of Profile and Group Assignment
 
@@ -347,15 +400,14 @@ This test plan outlines the scenarios and conditions to be validated in the Fina
 
 
 
-## 8. Riscos e Mitigações
-- Possíveis riscos que podem impactar o teste e como planejar para mitigá-los.
+## 8. Risks and Mitigations
+- Perform regression and exploratory testing to mitigate errors in product delivery.
 
-## 9. Relatórios e Registro de Defeitos
-- Como será feito o registro de bugs (ferramenta, formato).  
-- Frequência e formato dos relatórios de status.
+## 9. Reports and Defect Logging
+- Log bugs and improvements found in Azure DevOps.
 
-## 10. Aprovações
-- Quais stakeholders precisam aprovar o plano e a execução dos testes.
+## 10. Approvals
+- The test plan must be approved by the AS2 Group team.
 
 
 ---
