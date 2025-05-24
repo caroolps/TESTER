@@ -105,7 +105,7 @@ Index | As | I Want to | So that
 - **Responsible:**  
   Test Analyst Caroline Sousa
 
-## 7. Test Cases
+## 5. Test Cases
 
 ### 01. Test Case: Validation of Profile and Group Assignment
 
@@ -410,13 +410,13 @@ Index | As | I Want to | So that
 | 2 | Log in to the application on a second device using the same user | The app should log in using Windows AD and prompt for approval to connect on the new device |
 
 
-## 8. Risks and Mitigations
+### 6. Risks and Mitigations
 - Perform regression and exploratory testing to mitigate errors in product delivery.
 
-## 9. Reports and Defect Logging
+### 7. Reports and Defect Logging
 - Log bugs and improvements found in Azure DevOps.
 
-## 10. Approvals
+### 8. Approvals
 - The test plan must be approved by the AS2 Group team.
 
 
