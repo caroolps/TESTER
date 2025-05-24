@@ -144,7 +144,7 @@ Index | As | I Want to | So that
 | 7 | Select a notification and click "Approve" | App should prompt the user to input Windows AD credentials |
 | 8 | Enter incorrect user credentials and save | App should **not** approve the notification and should display an informational message |
 | 9 | Select a notification and click "Approve" | App should prompt the user to input Windows AD credentials |
-| 10 | Enter correct user credentials and save | App should approve the notification and send an email notification to the Team Leader |
+| 10 | Enter correct user credentials and save | App should approve the notification and send an email notification to the Project Leader |
 | 11 | Access the notification history | App should display the approved notification in the history |
 | 12 | Select a notification and click "Reject" | App should prompt the user to input Windows AD credentials |
 | 13 | Enter incorrect user credentials and save | App should **not** reject the notification and should display an informational message |
@@ -398,6 +398,15 @@ Index | As | I Want to | So that
 | 3 | Access the "Project List" menu, make unsaved changes, and close the app | App should **not** save the changes and should display the project with the previous status |
 | 4 | Access the "Project List" menu and press the back arrow multiple times | App should display a pop-up asking if the user really wants to exit the application |
 
+### 17. Test Case: Validation of Login on Multiple Devices
+
+**Requirement Traceability:** Not applicable  
+**Objective:** Verify how the application behaves when logging in with the same user on different devices  
+
+| Step | Action | Expected Result |
+|------|--------|------------------|
+| 1 | Log in to the application using one profile | The app should log in using Windows AD |
+| 2 | Log in to the application on a second device using the same user | The app should log in using Windows AD and prompt for approval to connect on the new device |
 
 
 ## 8. Risks and Mitigations
